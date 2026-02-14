@@ -1,0 +1,54 @@
+/* Floating Features Animation */
+@keyframes float-feature {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.feature-card {
+    /* Existing styles will be inherited/cascaded if strictly appending, 
+       but best to ensure we prefer the animation while keeping hover effects. 
+       Note: transform transition on hover might conflict with animation. 
+       We'll set animation-play-state: paused on hover to let the hover transform take over or just combine them. 
+       Actually, standard "floating" usually continues. 
+       Let's simply add the animation. */
+    animation: float-feature 6s ease-in-out infinite;
+}
+
+/* Stagger animations for a more natural look */
+.feature-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.feature-card:nth-child(4) {
+    animation-delay: 4.5s;
+}
+
+/* Pause on hover to allow the hover effect (translateY -8px) to be stable if desired, 
+   or we can let them combine. The existing hover has translateY(-8px). 
+   Animation overrides transform. 
+   We often need a wrapper for animation vs hover transform, OR simply prioritize one.
+   If we want "floating as well", user implies the motion. 
+   Let's wrap the card content or just accept that animation might override hover transform 
+   unless we handle it carefully. 
+   Simplest robust way: Apply animation. */
+
+.feature-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-8px);
+    /* Ensure it stays lifted on hover */
+}

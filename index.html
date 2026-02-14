@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Watcher - Manipal University Jaipur</title>
+    <meta name="description"
+        content="Real-time environmental monitoring for Manipal University Jaipur server rooms using ESP32, W5500, and SHT35.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mentors.css">
+    <link rel="stylesheet" href="floating.css">
+
+    <!-- Font Awesome for Icons (using CDN for simplicity) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logoSdc.png" alt="SDC Manipal University Jaipur" class="nav-logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#tech-specs">Tech Specs</a></li>
+                    <li><a href="#team">Team</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="text-content">
+                    <h1>LAN-Based Temperature & Humidity Monitoring</h1>
+                    <p class="tagline">Providing real-time environmental surveillance for Manipal University Jaipur
+                        server rooms to prevent hardware failure and data loss.</p>
+                    <div class="cta-group">
+                        <a href="https://server-watcher-app.web.app/" class="btn-primary" target="_blank">View Live
+                            Dashboard</a>
+                        <a href="#about" class="btn-secondary">Project Details</a>
+                    </div>
+                </div>
+                <div class="visual-content">
+                    <div class="dashboard-preview">
+                        <!-- Simulated Dashboard UI -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span><i class="fa-solid fa-temperature-half"></i> Server Room A</span>
+                                <span class="status-dot green"></span>
+                            </div>
+                            <div class="card-value">24.5°C</div>
+                            <div class="card-subtext">Humidity: 45%</div>
+                            <div class="card-chart">
+                                <div class="bar" style="height: 40%"></div>
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar" style="height: 55%"></div>
+                                <div class="bar" style="height: 70%"></div>
+                                <div class="bar" style="height: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="glass-alert">
+                            <i class="fa-solid fa-check-circle"></i> System Nominal
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-bg-glow"></div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-text">
+                        <div class="section-header left-align">
+                            <h4 class="sub-heading">Project Scope</h4>
+                            <h2>Ensuring Infrastructure Stability</h2>
+                        </div>
+                        <p>The server rooms at Manipal University Jaipur are critical to the institution's digital
+                            infrastructure. Without automated monitoring, they face risks of overheating and moisture
+                            damage.</p>
+                        <p>Our <strong>LAN-Based IoT Monitoring System</strong> mitigates these risks by providing:</p>
+                        <ul class="check-list">
+                            <li><i class="fa-solid fa-circle-check"></i> 24/7 Continuous Monitoring</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Automated Multi-channel Alerts (SMS, Call,
+                                Email)</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Historical Data Analysis & Export</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>System Features</h2>
+                    <p>Comprehensive monitoring solution designed for reliability.</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h3>Real-time Monitoring</h3>
+                        <p>SHT35 sensors provide high-accuracy temperature and humidity readings instantly, displayed on
+                            both the web dashboard and local 16x2 I2C panels.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3>Automated Alerts</h3>
+                        <p>Immediate notifications via Twilio (SMS & Call) and Email when environmental thresholds are
+                            breached, ensuring rapid response.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3>Reliable Connectivity</h3>
+                        <p>Utilizes W5500 Ethernet Modules for stable LAN connectivity and Power over Ethernet (PoE) for
+                            streamlined deployment.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-chart-area"></i>
+                        </div>
+                        <h3>Data Analytics</h3>
+                        <p>MySQL-backed storage allows for detailed historical trend analysis via Grafana and CSV/Excel
+                            exports for reporting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-specs" class="section-padding bg-surface">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Technical Architecture</h2>
+                    <p>Built on robust hardware and modern software stacks.</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-column">
+                        <h3><i class="fa-solid fa-microchip"></i> Hardware</h3>
+                        <ul class="tech-list">
+                            <li><strong>Microcontroller:</strong> ESP32</li>
+                            <li><strong>Ethernet:</strong> W5500 module</li>
+                            <li><strong>Sensor:</strong> SHT35</li>
+                            <li><strong>Display:</strong> I2C LCD display</li>
+                        </ul>
+                    </div>
+                    <div class="tech-column">
+                        <h3><i class="fa-solid fa-code"></i> Software</h3>
+                        <ul class="tech-list">
+                            <li><strong>Frontend:</strong> Flutter</li>
+                            <li><strong>Backend:</strong> Python3, FastAPI</li>
+                            <li><strong>Database:</strong> SQLite, Influx</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Project Team</h2>
+                    <p>Department of Computer Science & Engineering<br>School of Computer Science and Engineering, MUJ
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="avatar-placeholder">A</div>
+                        <h3>Aryan Sharma</h3>
+                        <p class="role">2427030050</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="avatar-placeholder">A</div>
+                        <h3>Aadithya Krishna JK</h3>
+                        <p class="role">23FE10CSE00624</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="avatar-placeholder">G</div>
+                        <h3>Garvit Arora</h3>
+                        <p class="role">23FE10CSE00042</p>
+                    </div>
+                </div>
+
+                <!-- Mentors & Client Section -->
+                <div class="mentors-section">
+                    <div class="section-header" style="margin-bottom: 30px; margin-top: 60px;">
+                        <h2>Mentorship & Vision</h2>
+                    </div>
+                    <div class="mentors-grid">
+                        <div class="mentor-card">
+                            <p class="mentor-role">Project Guide</p>
+                            <h3>Dr. Amit Garg</h3>
+                            <p class="mentor-dept">Dept. of CSE, MUJ</p>
+                        </div>
+                        <div class="mentor-card">
+                            <p class="mentor-role">Project Client & IT Head</p>
+                            <h3>Mr. Anshuman Mohanty</h3>
+                            <p class="mentor-dept">IT Infrastructure Head, MUJ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fa-solid fa-server"></i> Server Watcher
+                    </div>
+                </div>
+                <div class="copyright">
+                    &copy; 2025
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
